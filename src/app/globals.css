@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+:root {
+  --color-cream: #fbf5ee;
+  --color-cream-deep: #f4ead9;
+  --color-blush: #e89aa5;
+  --color-blush-soft: #f2c3ca;
+  --color-blush-deep: #cf7684;
+  --color-beige: #c6a180;
+  --color-beige-soft: #ddc4a6;
+  --color-brown: #4a342c;
+  --color-brown-soft: #7c5c4c;
+  --color-white: #fffdfb;
+
+  --font-display: "Helvetica Neue", Helvetica, Arial, "Inter", sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@theme inline {
+  --color-cream: var(--color-cream);
+  --color-cream-deep: var(--color-cream-deep);
+  --color-blush: var(--color-blush);
+  --color-blush-soft: var(--color-blush-soft);
+  --color-blush-deep: var(--color-blush-deep);
+  --color-beige: var(--color-beige);
+  --color-beige-soft: var(--color-beige-soft);
+  --color-brown: var(--color-brown);
+  --color-brown-soft: var(--color-brown-soft);
+  --color-white: var(--color-white);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-brown);
+  font-family: var(--font-body), sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.font-display.italic {
+  font-style: normal;
+}
+
+::selection {
+  background: var(--color-blush);
+  color: var(--color-white);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-blush-deep);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, var(--color-blush-deep), var(--color-beige) 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass {
+  background: rgba(255, 253, 251, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--color-cream-deep) 25%, var(--color-beige-soft) 37%, var(--color-cream-deep) 63%);
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+@keyframes blob-drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(24px, -18px) scale(1.06); }
+  66% { transform: translate(-14px, 12px) scale(0.95); }
+}
+
+@keyframes blob-drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-20px, 16px) scale(0.94); }
+  66% { transform: translate(16px, -14px) scale(1.05); }
+}
+
+.blob-drift-a {
+  animation: blob-drift-a 26s ease-in-out infinite;
+}
+
+.blob-drift-b {
+  animation: blob-drift-b 32s ease-in-out infinite;
+}
+
+@keyframes ambient-light-drift {
+  0%, 100% { transform: translate(-6%, -4%) scale(1); opacity: 0.55; }
+  25% { transform: translate(4%, 3%) scale(1.05); opacity: 0.7; }
+  50% { transform: translate(6%, -3%) scale(1.02); opacity: 0.5; }
+  75% { transform: translate(-4%, 4%) scale(1.04); opacity: 0.65; }
+}
+
+.ambient-light {
+  animation: ambient-light-drift 46s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob-drift-a, .blob-drift-b, .ambient-light {
+    animation: none;
+  }
+}
+
+/* Flat, aligned resting state — tilt-on-rest/straighten-on-hover removed per design direction */
+.scatter-1, .scatter-2, .scatter-3, .scatter-4, .scatter-5 {
+  transform: none;
+}
+
+/* Editorial word highlight: subtle tracking + brightness on hover, never distorting letterforms */
+.word-highlight {
+  transition: letter-spacing 0.4s ease, filter 0.4s ease;
+}
+.word-highlight:hover {
+  letter-spacing: 0.01em;
+  filter: brightness(1.12);
+}
+
+.receipt-edge {
+  position: relative;
+}
+
+.receipt-edge::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -9px;
+  height: 9px;
+  background-image:
+    linear-gradient(-45deg, transparent 6px, var(--color-white) 6px),
+    linear-gradient(45deg, transparent 6px, var(--color-white) 6px);
+  background-size: 13px 13px;
+  background-position: left bottom;
+  background-repeat: repeat-x;
+}
+
+/* Visible structural break between sections: a heavy rule, not a soft fade */
+.section-break {
+  border-top: 2px solid var(--color-brown);
+  opacity: 0.9;
+}
