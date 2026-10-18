@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, Search, MapPin, Calendar, ChevronDown } from "lucide-react";
+import { CheckCircle2, Search, MapPin, Calendar, ChevronDown, Coffee } from "lucide-react";
 import { TiltCard } from "@/components/TiltCard";
-import { SecondaryButton } from "@/components/ui";
-import { featuredEvent } from "@/lib/data";
+import { PrimaryButton, SecondaryButton } from "@/components/ui";
+import { brewRoom, featuredEvent } from "@/lib/data";
 
 export function FeaturedEventCard() {
   const [open, setOpen] = useState(false);
@@ -76,13 +76,49 @@ export function FeaturedEventCard() {
   );
 }
 
+/**
+ * The Brew Room: our newest experience, and the only live one. It is a dark
+ * card on purpose so it reads as "now" next to the concluded Receipt card,
+ * with a gingham edge as the one nod to the Brew Room's own look.
+ */
+export function BrewRoomEventCard() {
+  return (
+    <TiltCard className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-brown bg-brown text-white shadow-[0_10px_30px_rgba(74,52,44,0.22)]">
+      <div className="gingham-strip h-3.5 w-full" aria-hidden="true" />
+
+      <div className="relative flex flex-1 flex-col p-6 pb-7">
+        <div className="flex items-start justify-between gap-3">
+          <span className="rotate-2 rounded-md border border-dashed border-blush/70 bg-blush/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-blush-soft">
+            {brewRoom.category}
+          </span>
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-blush-soft">
+            <Coffee size={16} />
+          </span>
+        </div>
+
+        <h3 className="mt-4 font-display text-xl text-white">{brewRoom.title}</h3>
+        <p className="mt-1 text-sm font-semibold text-blush-soft">{brewRoom.tagline}</p>
+
+        <p className="mt-3 text-sm leading-relaxed text-cream/85">{brewRoom.homeDescription}</p>
+
+        <div className="mt-auto pt-6">
+          <PrimaryButton href={brewRoom.url} variant="light" external>
+            {brewRoom.homeCta} <span aria-hidden="true">↗</span>
+            <span className="sr-only"> (opens in a new tab)</span>
+          </PrimaryButton>
+        </div>
+      </div>
+    </TiltCard>
+  );
+}
+
 export function PlaceholderEventCard() {
   return (
     <TiltCard className="flex h-full flex-col overflow-hidden rounded-2xl border border-beige-soft/50 bg-white/60">
       <div className="skeleton h-32 w-full" />
       <div className="flex flex-col gap-2 p-5">
         <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-blush-deep">
-          <Calendar size={13} /> Announcing soon
+          <Calendar size={13} /> Next event not announced yet
         </div>
         <div className="skeleton h-3.5 w-4/5 rounded-full" />
         <div className="skeleton h-3 w-3/5 rounded-full" />

@@ -2,7 +2,7 @@
 
 import { Eyebrow, Reveal } from "@/components/ui";
 import { Quote, Store, ExternalLink } from "lucide-react";
-import { FeaturedEventCard, PlaceholderEventCard } from "@/components/home/EventCard";
+import { FeaturedEventCard, BrewRoomEventCard, PlaceholderEventCard } from "@/components/home/EventCard";
 
 export function UpcomingEvents() {
   return (
@@ -10,10 +10,11 @@ export function UpcomingEvents() {
       <Reveal className="mx-auto max-w-2xl text-center">
         <Eyebrow>Our Events</Eyebrow>
         <h2 className="font-display text-4xl leading-[0.95] text-brown md:text-6xl">
-          Our first experience, and what&apos;s brewing next
+          Our first experience, and our newest
         </h2>
         <p className="mt-4 text-base text-brown-soft">
-          Follow us on Instagram to be first to know when new dates drop.
+          One happened around a café table in Lucknow. The other lives online, and it&apos;s open
+          now. Follow us on Instagram to be first to know when new dates drop.
         </p>
       </Reveal>
 
@@ -22,7 +23,7 @@ export function UpcomingEvents() {
           <FeaturedEventCard />
         </Reveal>
         <Reveal delay={0.08}>
-          <PlaceholderEventCard />
+          <BrewRoomEventCard />
         </Reveal>
         <Reveal delay={0.16}>
           <PlaceholderEventCard />

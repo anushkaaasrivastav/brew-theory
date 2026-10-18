@@ -71,8 +71,11 @@ since Web3Forms requires a valid `access_key`.
 - The contact form submits to Web3Forms (see Environment Variables above). The newsletter
   form is still a client-side simulation, since it needs a mailing-list provider rather than
   a form-to-email service.
-- "Upcoming Events" and "Partner Cafés" now feature real content ("The Receipt Never Lies" and
-  VIJ HOUSE CAFE); remaining slots are honest "coming soon" placeholders, not fabricated content.
+- "Our Events" and "Partner Cafés" feature real content ("The Receipt Never Lies", The Brew Room,
+  and VIJ HOUSE CAFE); remaining slots are honest placeholders, not fabricated content.
+- The Brew Room (https://thebrewroom.vercel.app/) is a live digital experience, not a dated event.
+  Its copy and URL live in `brewRoom` / `BREW_ROOM_URL` in `src/lib/data.ts`, and every link to it
+  opens in a new tab.
 - Motion is deliberately restrained: 3D tilt is scoped to Featured Experience and Upcoming
   Event cards only; magnetic hover is scoped to the Hero and final CTA "Partner With Us"
   buttons only. Everything else uses simple lift, shadow, and border-glow on hover.
