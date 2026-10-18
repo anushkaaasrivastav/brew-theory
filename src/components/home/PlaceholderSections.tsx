@@ -10,20 +10,20 @@ export function UpcomingEvents() {
       <Reveal className="mx-auto max-w-2xl text-center">
         <Eyebrow>Our Events</Eyebrow>
         <h2 className="font-display text-4xl leading-[0.95] text-brown md:text-6xl">
-          Our first experience, and our newest
+          Our newest experience, and our first
         </h2>
         <p className="mt-4 text-base text-brown-soft">
-          One happened around a café table in Lucknow. The other lives online, and it&apos;s open
-          now. Follow us on Instagram to be first to know when new dates drop.
+          The newest lives online, and it&apos;s open now. Our first happened around a café table in
+          Lucknow. Follow us on Instagram to be first to know when new dates drop.
         </p>
       </Reveal>
 
       <div className="mt-12 grid gap-5 sm:grid-cols-3">
         <Reveal>
-          <FeaturedEventCard />
+          <BrewRoomEventCard />
         </Reveal>
         <Reveal delay={0.08}>
-          <BrewRoomEventCard />
+          <FeaturedEventCard />
         </Reveal>
         <Reveal delay={0.16}>
           <PlaceholderEventCard />
