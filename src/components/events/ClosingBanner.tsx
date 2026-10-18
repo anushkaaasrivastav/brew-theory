@@ -22,7 +22,7 @@ export function ClosingBanner() {
           This case may be closed&hellip;
         </h2>
         <p className="mt-4 text-base text-cream/80 md:text-lg">
-          &hellip;but the next mystery is already brewing.
+          &hellip;but The Brew Theory is still brewing.
         </p>
         <div className="mt-8 flex justify-center">
           <PrimaryButton href="/#newsletter" variant="light">

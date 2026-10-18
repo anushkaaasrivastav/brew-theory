@@ -6,10 +6,11 @@ export function EventClosedNotice() {
       <Reveal>
         <p className="text-base leading-relaxed text-brown-soft md:text-lg">
           This experience has officially concluded. Thank you to every detective who joined us.
-          More immersive experiences from Brew Theory are already brewing.
+          The Receipt Never Lies was our first immersive, in-person experience, and our newest one
+          is a different kind of thing altogether: a digital corner you can step into right now.
         </p>
         <div className="mt-7 flex justify-center">
-          <SecondaryButton href="#more-experiences">Explore Upcoming Experiences</SecondaryButton>
+          <SecondaryButton href="#brew-room">Meet The Brew Room</SecondaryButton>
         </div>
       </Reveal>
     </section>

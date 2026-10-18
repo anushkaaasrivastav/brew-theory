@@ -22,7 +22,12 @@ export function Footer() {
           <ul className="mt-4 flex flex-col gap-2.5">
             {footerLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="text-sm text-brown-soft transition-colors hover:text-blush-deep">
+                <Link
+                  href={link.href}
+                  className="text-sm text-brown-soft transition-colors hover:text-blush-deep"
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                >
                   {link.label}
                 </Link>
               </li>

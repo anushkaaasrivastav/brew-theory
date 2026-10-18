@@ -1,3 +1,6 @@
+/** Single source of truth for every link out to The Brew Room. */
+export const BREW_ROOM_URL = "https://thebrewroom.vercel.app/";
+
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/events", label: "Events" },
@@ -6,11 +9,12 @@ export const navLinks = [
 ];
 
 /** Footer keeps its original link set (including Services) unchanged. */
-export const footerLinks = [
+export const footerLinks: { href: string; label: string; external?: boolean }[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
+  { href: BREW_ROOM_URL, label: "The Brew Room ↗", external: true },
 ];
 
 export type Service = {
@@ -252,17 +256,36 @@ export const eventFaqs = [
   },
 ];
 
-export const comingSoonEvents = [
-  {
-    title: "Coming Soon",
-    description: "An exciting new Brew Theory experience is currently in the works. Check back soon for more details.",
+/**
+ * The Brew Room: a digital experience made under The Brew Theory. It is live
+ * and open to anyone, so it has no date, venue, ticket or registration.
+ * Every Brew Room link on this site reads its URL from here.
+ */
+export const brewRoom = {
+  url: BREW_ROOM_URL,
+  category: "Digital Experience",
+  title: "The Brew Room",
+  tagline: "Your little corner of the internet.",
+  homeDescription:
+    "A digital experience for custom playlists, photobooth moments, mini games, creative inspiration, and thoughts left behind by strangers. Step in, explore a little, and leave something of your own.",
+  homeCta: "Enter The Brew Room",
+  eyebrow: "A New Kind Of Brew Theory Experience",
+  subheading: "A little world of your own, tucked away on the internet.",
+  eventsDescription: [
+    "Somewhere between a playlist that gets you, a photo you didn't plan on taking, a game you stumbled into, and a stranger's thoughts waiting at your table, there's The Brew Room.",
+    "Explore the library, make the experience your own, and leave a little something for the next person who finds their way here.",
+  ],
+  eventsCta: "Explore The Brew Room",
+  features: [
+    { icon: "music" as const, title: "Customised playlists", description: "A personal soundtrack for the mood you're in." },
+    { icon: "camera" as const, title: "Photobooth", description: "A space to capture moments." },
+    { icon: "book" as const, title: "Library", description: "Browse ideas and find creative inspiration." },
+    { icon: "gamepad" as const, title: "Mini games", description: "Small interactive experiences to explore and play." },
+  ],
+  leaveAtTheTable: {
+    title: "Leave at the Table",
+    description:
+      "Leave a thought for someone else to discover, and read the ones left behind by strangers who sat here before you.",
+    motto: "Make something. Leave something. Find something someone else left behind.",
   },
-  {
-    title: "Coming Soon",
-    description: "Another unique café experience is brewing behind the scenes. Stay tuned.",
-  },
-  {
-    title: "Coming Soon",
-    description: "More events and collaborations will be announced shortly. Follow our journey and check back for updates.",
-  },
-];
+};

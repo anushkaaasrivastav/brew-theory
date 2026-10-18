@@ -55,20 +55,3 @@ export function ExperienceCard({
     </motion.div>
   );
 }
-
-export function ComingSoonCard({ description, index }: { description: string; index: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-      className="flex h-full flex-col rounded-2xl border border-dashed border-beige-soft bg-white/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blush-deep/50 hover:shadow-[0_12px_28px_rgba(207,118,132,0.12)]"
-    >
-      <span className="inline-flex w-fit items-center rounded-full bg-beige-soft/50 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-brown-soft">
-        Coming Soon
-      </span>
-      <p className="mt-4 text-sm leading-relaxed text-brown-soft">{description}</p>
-    </motion.div>
-  );
-}
